@@ -1,0 +1,12 @@
+/.git/
+/.idea/
+/venv/
+/apex/
+/cache/
+/docker-compose.yml
+/dostoevsky_doesnt_write_it/
+/runs/
+/data/*.txt
+/pretrain_transformers.py
+/generate_transformers.py
+__pycache__
