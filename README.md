@@ -91,7 +91,11 @@ pip install packaging==23.0 torch==1.13.1+cu117 -f https://download.pytorch.org/
 # Download and build Apex
 export CUDA_HOME=/usr/local/cuda
 git clone https://github.com/NVIDIA/apex.git
+cd ./apex && git checkout 8b7a1ff183741dd8f9b87e7bafd04cfde99cea28 && cd ..
 pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./apex
+
+# Install ru-gpts
+git clone https://github.com/EvilFreelancer/ru-gpts.git ru_gpts
 
 # Install other dependencies
 pip install -r requirements.txt

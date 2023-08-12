@@ -1,0 +1,3 @@
+[submodule "ru_gpts"]
+	path = ru_gpts
+	url = https://github.com/EvilFreelancer/ru-gpts.git

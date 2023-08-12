@@ -6,6 +6,7 @@
 /docker-compose.yml
 /dostoevsky_doesnt_write_it/
 /runs/
+/ru_gpts/
 /data/*.txt
 /pretrain_transformers.py
 /generate_transformers.py
