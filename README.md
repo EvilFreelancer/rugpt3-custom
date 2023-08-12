@@ -99,6 +99,9 @@ git clone https://github.com/EvilFreelancer/ru-gpts.git ru_gpts
 
 # Install other dependencies
 pip install -r requirements.txt
+
+# For ruGPT3XL need to use requirements-xl.txt file
+pip install -r requirements-xl.txt
 ```
 
 ## How to train (optional)
