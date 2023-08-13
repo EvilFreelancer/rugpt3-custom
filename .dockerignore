@@ -5,9 +5,12 @@
 /cache/
 /docker-compose.yml
 /dostoevsky_doesnt_write_it/
+/rugpt3xl_custom/
 /runs/
 /ru_gpts/
 /data/*.txt
-/pretrain_transformers.py
-/generate_transformers.py
+/_cache_*
+/data/_cache_*
+/pretrain_*.py
+/generate_*.py
 __pycache__
