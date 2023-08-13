@@ -9,6 +9,8 @@ The model was trained for five epochs, resulting in a model file of approximatel
 
 The specified file has been uploaded to the HuggingFace service and can be used locally for testing.
 
+> Details here: https://dzen.ru/a/ZHTfs9pggmVlGC79 (on russian)
+
 ## Requirements
 
 If you prefer the Docker way:
@@ -160,6 +162,7 @@ After the model is loaded, you will see a command line prompt, just write a phra
 
 ## Links
 
+* https://dzen.ru/a/ZHTfs9pggmVlGC79
 * https://huggingface.co/evilfreelancer/dostoevsky_doesnt_write_it
 * https://github.com/K7chyp/DostoevskyDoesntWriteIt/
 * https://github.com/ai-forever/ru-gpts
