@@ -50,7 +50,7 @@ Next I've created Dockerfile and docker-compose.yml and project was done.
 Clone the repo, then switch working directory to sources root:
 
 ```shell
-git clone git@github.com:EvilFreelancer/rugpt3-custom.git
+git clone --recursive git@github.com:EvilFreelancer/rugpt3-custom.git
 cd rugpt3-custom
 ```
 
