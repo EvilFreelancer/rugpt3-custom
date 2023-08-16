@@ -25,12 +25,7 @@ RUN set -xe  \
  && cd ./apex \
  && git checkout 8b7a1ff183741dd8f9b87e7bafd04cfde99cea28 \
  && pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
-
-# Install ru-gpts
 WORKDIR /app
-RUN set -xe  \
- && echo \
- && git clone https://github.com/EvilFreelancer/ru-gpts.git ru_gpts
 
 # Install python packages
 COPY requirements.txt ./
@@ -40,5 +35,10 @@ RUN set -xe \
 
 # Copy project files
 COPY . .
+
+# Install ru-gpts
+RUN set -xe  \
+ && echo \
+ && git clone https://github.com/EvilFreelancer/ru-gpts.git ru_gpts
 
 CMD ["sleep", "inf"]
