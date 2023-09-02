@@ -1,7 +1,7 @@
-import os
 import torch
-from transformers import GPT2Tokenizer
 import time
+import os
+from transformers import GPT2Tokenizer, __version__
 
 if not os.path.exists("ru_gpts"):
     raise Exception("Folder `ru_gpts` not found! Please run `git clone https://github.com/EvilFreelancer/ru-gpts.git ru_gpts` first")
@@ -10,21 +10,26 @@ from ru_gpts.src.xl_wrapper import RuGPT3XL
 
 name = 'ai-forever/rugpt3xl'
 
-start_time = time.time()  # Start model load time
+# Checking the version of transformers
+print("Transformers version:", __version__)
 
-# Download model source and weights
+# Start model load time
+start_time = time.time()
+
+# Loading the model and tokenizer
 model = RuGPT3XL.from_pretrained(name, seq_len=1024)
-
-# Download tokenizer
 tokenizer = GPT2Tokenizer.from_pretrained(name)
 
-model_load_time = time.time() - start_time  # Model load time
+# Model load time
+model_load_time = time.time() - start_time
 
+# Sample texts
 system_prompt = "### System:\nYou are an AI that follows instructions extremely well. Help as much as you can. Remember, be safe, and don't do anything illegal.\n\n"
 message = "Write me a poem please"
 prompt = f"{system_prompt}### User: {message}\n\n### Assistant: "
 
-generation_start_time = time.time()  # Start generation time
+# Start generation time
+generation_start_time = time.time()
 
 with torch.autocast('cuda'):
     output = model.generate(

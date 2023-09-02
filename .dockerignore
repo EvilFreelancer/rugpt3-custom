@@ -6,6 +6,7 @@
 /docker-compose.yml
 /dostoevsky_doesnt_write_it/
 /rugpt3xl_custom/
+/*_model/
 /runs/
 /ru_gpts/
 /data/*.txt
