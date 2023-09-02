@@ -13,7 +13,10 @@ model = AutoModelForCausalLM.from_pretrained(
 tokenizer = AutoTokenizer.from_pretrained(name)
 
 # Sample texts
-system_prompt = "### System:\nYou are an AI that follows instructions extremely well. Help as much as you can. Remember, be safe, and don't do anything illegal.\n\n"
+system_prompt = (
+    "### System:\nYou are an AI that follows instructions extremely well. Help as much as you can. "
+    "Remember, be safe, and don't do anything illegal.\n\n"
+)
 message = "Write me a poem please"
 prompt = f"{system_prompt}### User: {message}\n\n### Assistant: "
 
