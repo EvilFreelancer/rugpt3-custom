@@ -1,37 +1,39 @@
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 name = 'ai-forever/ruGPT-3.5-13B'
+# name = 'ai-forever/mGPT-13B'
 
 # Loading the model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(
     name,
     device_map='auto',
     load_in_8bit=True,
-    max_memory={0: f'{int(torch.cuda.mem_get_info()[0] / 1024 ** 3) - 2}GB'}
+    max_memory={0: f'{int(torch.cuda.mem_get_info()[0] / 1024 ** 3) - 2}GB'},
 )
 tokenizer = AutoTokenizer.from_pretrained(name)
 
 # Sample texts
 system_prompt = (
-    "### System:\nYou are an AI that follows instructions extremely well. Help as much as you can. "
-    "Remember, be safe, and don't do anything illegal.\n\n"
+    "Ты - модель искусственного интеллекта ruGPT-3.5 13B, которая очень хорошо следует инструкциям. "
+    "Твоя задача - помогать пользователю и отвечать на вопросы. "
+    "Будь внимательна и не делай ничего противозаконного."
 )
-message = "Write me a poem please"
-prompt = f"{system_prompt}### User: {message}\n\n### Assistant: "
+bot_message = 'Привет, чем я могу помочь?'
+message = "Напиши стихотворение о программистах"
+prompt = f"### Система:\n{system_prompt}\n\n### Бот:\n{bot_message}\n\n### Пользователь:\n{message}\n\n### Бот:\n"
+
+# Run text-generation pipeline
+pipe = pipeline('text-generation', model=model, tokenizer=tokenizer)
 
 # Generate output
-output = model.generate(
+output = pipe(
     prompt,
-    max_length=1024,
-    do_sample=True,
-    top_k=20,
-    top_p=0.95,
+    max_new_tokens=256,
+    top_k=40,
+    top_p=0.85,
     repetition_penalty=1.1,
-    early_stopping=False,
-    num_beams=1,
-    num_beam_groups=1,
-    num_return_sequences=1,
-    temperature=1.0,
+    do_sample=True,
+    use_cache=False,
 )
-print(output)
+print(output[0]['generated_text'])
