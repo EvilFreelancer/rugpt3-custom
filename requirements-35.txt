@@ -1,0 +1,7 @@
+numpy==1.24.2
+pandas==1.5.3
+transformers==4.32.1
+torch==2.0.1
+accelerate==0.22.0
+bitsandbytes==0.41.1
+scipy==1.11.2

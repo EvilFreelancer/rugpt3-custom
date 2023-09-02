@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ ! -f pretrain_transformers.py ] && wget https://raw.githubusercontent.com/ai-forever/ru-gpts/master/pretrain_transformers.py
+[ ! -f pretrain_transformers.py ] && wget https://raw.githubusercontent.com/EvilFreelancer/ru-gpts/master/pretrain_transformers.py
 
 base_model="sberbank-ai/rugpt3small_based_on_gpt2"
 output_dir="./dostoevsky_doesnt_write_it"
